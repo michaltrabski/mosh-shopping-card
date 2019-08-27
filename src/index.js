@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import Item from "./components/item";
+import Items from "./components/items";
 
-ReactDOM.render(<Item />, document.getElementById("root"));
+ReactDOM.render(<Items />, document.getElementById("root"));
