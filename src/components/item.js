@@ -20,6 +20,12 @@ class Item extends Component {
           >
             +
           </button>
+          <button
+            className="btn btn-danger ml-3"
+            onClick={() => this.props.handleDelete(id)}
+          >
+            delete
+          </button>
         </span>
       </li>
     );

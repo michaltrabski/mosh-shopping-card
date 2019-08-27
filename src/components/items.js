@@ -28,7 +28,6 @@ class Items extends Component {
     const index = items.findIndex(obj => obj.id === id); // I need to find an array index where is current object to change
     const count = items[index].count + 1;
     items[index].count = count;
-    // console.log(items[index].count);
     this.setState({ items });
   };
 
@@ -37,13 +36,18 @@ class Items extends Component {
     const index = items.findIndex(obj => obj.id === id); // I need to find an array index where is current object to change
     const count = items[index].count - 1;
     items[index].count = count === -1 ? 0 : count;
-    console.log(items[index].count);
     this.setState({ items });
   };
+
+  handleDelete = id => {
+    const items = [...this.state.items].filter(x => x.id !== id);
+    this.setState({ items });
+  };
+
   render() {
     return (
       <div>
-        <h3>Shooping card:</h3>
+        <h3>Your shopping card has {this.state.items.length}</h3>
         <ul className="list-group" style={{ width: "400px" }}>
           {this.state.items.map(x => (
             <Item
@@ -51,6 +55,7 @@ class Items extends Component {
               item={x}
               handleDecrement={this.handleDecrement}
               handleIncrement={this.handleIncrement}
+              handleDelete={this.handleDelete}
             />
           ))}
         </ul>
